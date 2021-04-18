@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import { IMenuProps } from "./MenuTypes";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuSection from "../menuSection/MenuSection";
-import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {

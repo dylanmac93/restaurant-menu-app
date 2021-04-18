@@ -1,11 +1,11 @@
-import { shallow, ShallowWrapper } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
 import { IMenuProps } from "../components/menu/MenuTypes";
 import { IMenuSection } from "../app/AppTypes";
 import Menu from "../components/menu/Menu";
 import MenuSection from "../components/menuSection/MenuSection";
 
 describe("Menu", () => {
-  let component: ShallowWrapper;
+  let component: ReactWrapper;
   let props: IMenuProps;
   MenuSection.displayName = "MenuSection";
 
@@ -17,7 +17,7 @@ describe("Menu", () => {
         MenuSections: [{} as IMenuSection],
       },
     };
-    component = shallow(<Menu {...props} />);
+    component = mount(<Menu {...props} />);
   });
 
   it("renders without crashing", () => {

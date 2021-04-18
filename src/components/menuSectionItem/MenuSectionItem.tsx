@@ -31,7 +31,9 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
     <div className={classes.root}>
       <div className={classes.leftDiv}>
         <div className={classes.name}>{props.name}</div>
-        {props.image && <img src={props.image} className={classes.image} />}
+        {props.image && (
+          <img src={props.image} className={classes.image} alt="" />
+        )}
         {props.description && <div>{props.description}</div>}
       </div>
       <div>
@@ -40,7 +42,6 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
             <div key={menuItemOptionSet.MenuItemOptionSetId}>
               <MenuItemOptionSet
                 isMasterOptionSet={menuItemOptionSet.IsMasterOptionSet}
-                name={menuItemOptionSet.Name}
                 price={props.price}
                 menuItemOptionSetItems={
                   menuItemOptionSet.MenuItemOptionSetItems

@@ -1,14 +1,14 @@
 import React from "react";
 import App from "../app/App";
-import { shallow, ShallowWrapper } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
 import Menu from "../components/menu/Menu";
 
 describe("App", () => {
-  let component: ShallowWrapper;
+  let component: ReactWrapper;
   Menu.displayName = "Menu";
 
   beforeEach(() => {
-    component = shallow(<App />);
+    component = mount(<App />);
   });
 
   it("renders without crashing", () => {
