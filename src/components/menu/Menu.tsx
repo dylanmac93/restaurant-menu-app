@@ -32,7 +32,10 @@ function Menu(props: IMenuProps) {
         (menuSection) =>
           //exclude test MenuSection
           menuSection.MenuSectionId !== 296734 && (
-            <div className={classes.menuSectionDiv}>
+            <div
+              className={classes.menuSectionDiv}
+              key={menuSection.MenuSectionId}
+            >
               <MenuSection
                 name={menuSection.Name}
                 image={menuSection.ImageUrl}

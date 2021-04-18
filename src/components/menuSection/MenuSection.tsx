@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: "10%",
+    paddingTop: "12%",
   },
 }));
 

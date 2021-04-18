@@ -15,8 +15,13 @@ const useStyles = makeStyles((theme) => ({
     height: "100px",
   },
   leftDiv: {
-    width: "300px",
+    width: "30%",
+    marginRight: "5px",
   },
+  price: {
+    fontWeight: "bold",
+  },
+  name: { fontSize: "20px", marginBottom: "5px" },
 }));
 
 function MenuSectionItem(props: IMenuSectionItemProps) {
@@ -25,7 +30,7 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
   return (
     <div className={classes.root}>
       <div className={classes.leftDiv}>
-        <div>{props.name}</div>
+        <div className={classes.name}>{props.name}</div>
         {props.image && <img src={props.image} className={classes.image} />}
         {props.description && <div>{props.description}</div>}
       </div>
@@ -44,7 +49,7 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
             </div>
           ))
         ) : (
-          <div>{`€${props.price.toFixed(2)}`}</div>
+          <div className={classes.price}>{`€${props.price.toFixed(2)}`}</div>
         )}
       </div>
     </div>

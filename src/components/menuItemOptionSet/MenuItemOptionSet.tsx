@@ -16,12 +16,16 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "5px",
     marginBottom: "5px",
   },
+  price: {
+    fontWeight: "bold",
+  },
 }));
 
 function MenuItemOptionSet(props: IMenuItemOptionSetProps) {
   const classes = useStyles();
 
   const calculatePrice = (menuItemOptionSetItemPrice: number) => {
+    // when true ignore price from MenuSectionItem - causes incorrect price for burgers
     if (props.isMasterOptionSet) {
       return menuItemOptionSetItemPrice;
     }
@@ -32,11 +36,14 @@ function MenuItemOptionSet(props: IMenuItemOptionSetProps) {
   return (
     <div className={classes.root}>
       {props.menuItemOptionSetItems?.map((menuItemOptionSetItem) => (
-        <div className={classes.menuItemOptionSetItemDiv}>
+        <div
+          className={classes.menuItemOptionSetItemDiv}
+          key={menuItemOptionSetItem.MenuItemOptionSetItemId}
+        >
           <div className={classes.name}>{menuItemOptionSetItem.Name}</div>
-          <div>{`€${calculatePrice(menuItemOptionSetItem.Price).toFixed(
-            2
-          )}`}</div>
+          <div className={classes.price}>{`€${calculatePrice(
+            menuItemOptionSetItem.Price
+          ).toFixed(2)}`}</div>
         </div>
       ))}
     </div>
