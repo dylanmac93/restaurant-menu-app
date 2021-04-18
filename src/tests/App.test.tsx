@@ -1,9 +1,21 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
 import App from "../app/App";
+import { shallow, ShallowWrapper } from "enzyme";
+import Menu from "../components/menu/Menu";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App", () => {
+  let component: ShallowWrapper;
+  Menu.displayName = "Menu";
+
+  beforeEach(() => {
+    component = shallow(<App />);
+  });
+
+  it("renders without crashing", () => {
+    expect(component.exists()).toBe(true);
+  });
+
+  it("renders Menu", () => {
+    expect(component.find("Menu").exists()).toBe(true);
+  });
 });
