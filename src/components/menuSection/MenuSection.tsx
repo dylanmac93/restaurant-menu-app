@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { IMenuSectionProps } from "./MenuSectionTypes";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardHeader, CardMedia } from "@material-ui/core";
+import MenuSectionItem from "../menuSectionItem/MenuSectionItem";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: "20%",
+    paddingTop: "10%",
   },
 }));
 
@@ -29,7 +30,15 @@ function MenuSection(props: IMenuSectionProps) {
       )}
 
       {props.menuSectionItems?.map((menuSectionItem) => (
-        <div>Menu Section Item</div>
+        <div key={menuSectionItem.MenuItemId}>
+          <MenuSectionItem
+            name={menuSectionItem.Name}
+            image={menuSectionItem.ImageUrl}
+            price={menuSectionItem.Price}
+            description={menuSectionItem.Description}
+            menuItemOptionSets={menuSectionItem.MenuItemOptionSets}
+          />
+        </div>
       ))}
     </Card>
   );

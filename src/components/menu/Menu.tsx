@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuSectionDiv: {
     width: "100%",
+    border: "2px solid #2a2a2a",
   },
-  "@media (max-width: 905px)": {
+  "@media (max-width: 1000px)": {
     root: {
       gridTemplateColumns: "repeat(1, 1fr)",
     },
