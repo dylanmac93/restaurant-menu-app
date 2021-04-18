@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     background: "#2a2a2a;",
   },
   menuDiv: {
-    width: "90%",
+    width: "95%",
   },
 }));
 

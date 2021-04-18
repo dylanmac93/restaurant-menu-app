@@ -1,12 +1,24 @@
 import React, { memo } from "react";
 import { IMenuProps } from "./MenuTypes";
 import { makeStyles } from "@material-ui/core/styles";
+import MenuSection from "../menuSection/MenuSection";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     background: "white",
     marginTop: "20px",
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+  },
+  menuSectionDiv: {
+    width: "100%",
+  },
+  "@media (max-width: 905px)": {
+    root: {
+      gridTemplateColumns: "repeat(1, 1fr)",
+    },
   },
 }));
 
@@ -15,9 +27,19 @@ function Menu(props: IMenuProps) {
 
   return (
     <div className={classes.root}>
-      {props.menu.MenuSections?.map((menuSection) => (
-        <div key={menuSection.MenuSectionId}>Menu Section</div>
-      ))}
+      {props.menu.MenuSections?.map(
+        (menuSection) =>
+          //exclude test MenuSection
+          menuSection.MenuSectionId !== 296734 && (
+            <div className={classes.menuSectionDiv}>
+              <MenuSection
+                name={menuSection.Name}
+                image={menuSection.ImageUrl}
+                menuSectionItems={menuSection.MenuItems}
+              />
+            </div>
+          )
+      )}
     </div>
   );
 }
