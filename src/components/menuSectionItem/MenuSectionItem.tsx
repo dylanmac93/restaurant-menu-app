@@ -1,13 +1,21 @@
 import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { IMenuSectionItemProps } from "./MenuSectionItemTypes";
-import { Card, CardHeader, CardMedia } from "@material-ui/core";
+import MenuItemOptionSet from "../menuItemOptionSet/MenuItemOptionSet";
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex", flexDirection: "row" },
+  root: {
+    display: "flex",
+    flexDirection: "row",
+    padding: "10px",
+    alignItems: "center",
+  },
   image: {
     width: "130px",
     height: "100px",
+  },
+  leftDiv: {
+    width: "300px",
   },
 }));
 
@@ -16,15 +24,28 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
 
   return (
     <div className={classes.root}>
-      <div>
+      <div className={classes.leftDiv}>
         <div>{props.name}</div>
         {props.image && <img src={props.image} className={classes.image} />}
         {props.description && <div>{props.description}</div>}
       </div>
       <div>
-        {props.menuItemOptionSets?.map((menuItemOptionSet) => (
-          <div key={menuItemOptionSet.MenuItemOptionSetId}>MenuSectionItem</div>
-        ))}
+        {props.menuItemOptionSets && props.menuItemOptionSets.length > 0 ? (
+          props.menuItemOptionSets?.map((menuItemOptionSet) => (
+            <div key={menuItemOptionSet.MenuItemOptionSetId}>
+              <MenuItemOptionSet
+                isMasterOptionSet={menuItemOptionSet.IsMasterOptionSet}
+                name={menuItemOptionSet.Name}
+                price={props.price}
+                menuItemOptionSetItems={
+                  menuItemOptionSet.MenuItemOptionSetItems
+                }
+              />
+            </div>
+          ))
+        ) : (
+          <div>{`€${props.price.toFixed(2)}`}</div>
+        )}
       </div>
     </div>
   );

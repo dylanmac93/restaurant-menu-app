@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     border: "2px solid #2a2a2a",
   },
-  "@media (max-width: 1000px)": {
+  "@media (max-width: 1300px)": {
     root: {
       gridTemplateColumns: "repeat(1, 1fr)",
     },
