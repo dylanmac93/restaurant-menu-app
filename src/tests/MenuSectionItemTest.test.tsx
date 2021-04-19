@@ -14,6 +14,7 @@ describe("MenuSectionItem", () => {
       name: "name",
       price: 5,
       menuItemOptionSets: [{} as IMenuItemOptionSet],
+      image: "image",
     };
     component = mount(<MenuSectionItem {...props} />);
   });
@@ -26,5 +27,10 @@ describe("MenuSectionItem", () => {
     expect(component.find("MenuItemOptionSet").length).toBe(
       props.menuItemOptionSets?.length
     );
+  });
+
+  it("does not render img if image prop is undefined", () => {
+    component = mount(<MenuSectionItem {...props} image={undefined} />);
+    expect(component.find("img").exists()).toBe(false);
   });
 });

@@ -6,16 +6,16 @@ import MenuSection from "../menuSection/MenuSection";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    background: "white",
-    marginTop: "20px",
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
   },
   menuSectionDiv: {
     width: "100%",
-    border: "2px solid #2a2a2a",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  "@media (max-width: 1300px)": {
+  "@media (max-width: 1000px)": {
     root: {
       gridTemplateColumns: "repeat(1, 1fr)",
     },

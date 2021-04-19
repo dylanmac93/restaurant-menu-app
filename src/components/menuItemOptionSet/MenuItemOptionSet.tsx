@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     width: "100%",
+    flexWrap: "wrap",
   },
   name: {
     marginRight: "10px",

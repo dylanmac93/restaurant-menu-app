@@ -6,12 +6,16 @@ import MenuSectionItem from "../menuSectionItem/MenuSectionItem";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    height: "100%",
+    width: "99%",
+    height: "98%",
+    paddingBottom: "5px",
+  },
+  header: {
+    padding: "8px",
   },
   media: {
     height: 0,
-    paddingTop: "12%",
+    paddingTop: "10%",
   },
 }));
 
@@ -20,7 +24,7 @@ function MenuSection(props: IMenuSectionProps) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title={props.name} />
+      <CardHeader title={props.name} className={classes.header} />
       {props.image && (
         <CardMedia
           className={classes.media}

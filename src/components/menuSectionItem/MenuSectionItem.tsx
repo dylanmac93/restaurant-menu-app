@@ -7,16 +7,19 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "row",
-    padding: "10px",
+    padding: "5px",
     alignItems: "center",
   },
   image: {
-    width: "130px",
-    height: "100px",
+    width: "100px",
+    height: "70px",
   },
   leftDiv: {
-    width: "30%",
+    flex: "0.3",
     marginRight: "5px",
+  },
+  rightDiv: {
+    flex: "0.7",
   },
   price: {
     fontWeight: "bold",
@@ -36,7 +39,7 @@ function MenuSectionItem(props: IMenuSectionItemProps) {
         )}
         {props.description && <div>{props.description}</div>}
       </div>
-      <div>
+      <div className={classes.rightDiv}>
         {props.menuItemOptionSets && props.menuItemOptionSets.length > 0 ? (
           props.menuItemOptionSets?.map((menuItemOptionSet) => (
             <div key={menuItemOptionSet.MenuItemOptionSetId}>
